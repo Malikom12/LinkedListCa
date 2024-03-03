@@ -110,7 +110,20 @@ return an int indicating the position at which the Song could be found. If the S
        }
    }
 
+   /**A method called tail() that takes no parameters. This should return the last element in the list.**/
 
+   public Song tail(){
+       if (head == null){
+           return null;
+       }
+       else{
+           Node current = head;
+           while (current.getNext() != null) {
+               current = current.getNext();
+           }
+           return current.getData();
+       }
+   }
 
 
 
