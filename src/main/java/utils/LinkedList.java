@@ -98,6 +98,20 @@ return an int indicating the position at which the Song could be found. If the S
        songs++;
    }
 
+   /** A method called isEmpty() that takes no parameters. This should return a boolean indicating if there is data
+    currently stored in the list. **/
+
+   public boolean isEmpty(){
+       if (head == null){
+           return true;
+       }
+       else{
+           return false;
+       }
+   }
+
+
+
 
 
 
