@@ -65,5 +65,41 @@ public class LinkedList {
     }
 
 
+   /** A method called indexOf() that takes one parameter, a Song to be found in the list. The method should
+return an int indicating the position at which the Song could be found. If the Song could not be found, an
+    appropriate value should be returned to indicate this **/
+
+   public int indexOf(Song song){
+       int i = 0;
+       Node current = head;
+       while(current!=null){
+           if (current.getData().equals(song)){
+               return i;
+           }
+           current = current.getNext();
+           i++;
+       }
+       return -1;
+   }
+
+   /** A method called add() that takes a single parameter, a Song to be added to the end of the list. **/
+
+   public void add(Song song) {
+       Node newNode = new Node(song);
+       if (head == null) {
+           head = newNode;
+       } else {
+           Node current = head;
+           while (current.getNext() != null) {
+               current = current.getNext();
+           }
+           current.setNext(newNode);
+       }
+       songs++;
+   }
+
+
+
+
 
 }
