@@ -81,7 +81,77 @@ public class LinkedListExtraTests {
         assertEquals(song3, list.tail());
     }
 
+    /**
+     * Test method for removing all occurrences of a song that exists multiple times in the list.
+     * Verifies that all occurrences of the song are removed, and list size becomes 0.
+     */
+    @Test
+    public void testRemoveAllExistingMultipleTimes() {
+        LinkedList list = new LinkedList();
+        Song song = new Song("Title", "Artist");
+        list.add(song);
+        list.add(song);
+        assertTrue(list.removeAll(song));
+        assertEquals(0, list.size());
+    }
 
+    /**
+     * Test method for removing all occurrences of a song that exists once in the list.
+     * Verifies that the song is removed, and list size becomes 0.
+     */
+    @Test
+    public void testRemoveAllExistingOnce() {
+        LinkedList list = new LinkedList();
+        Song song = new Song("Title", "Artist");
+        list.add(song);
+        assertTrue(list.removeAll(song));
+        assertEquals(0, list.size());
+    }
+
+    /**
+     * Test method for removing all occurrences of a song that doesn't exist in the list.
+     * Verifies that no song is removed, and list size remains unchanged.
+     */
+    @Test
+    public void testRemoveAllNonExistingSong() {
+        LinkedList list = new LinkedList();
+        Song song = new Song("Title", "Artist");
+        assertFalse(list.removeAll(song));
+    }
+
+    /**
+     * Test method for removing all occurrences of a song from an empty list.
+     * Verifies that no song is removed, and list size remains 0.
+     */
+    @Test
+    public void testRemoveAllFromEmptyList() {
+        LinkedList list = new LinkedList();
+        Song song = new Song("Title", "Artist");
+        assertFalse(list.removeAll(song));
+    }
+
+    /**
+     * Test method for removing all occurrences of a song from a list with only one element.
+     * Verifies that the single song is removed, and list size becomes 0.
+     */
+    @Test
+    public void testRemoveAllFromListWithOneElement() {
+        LinkedList list = new LinkedList();
+        Song song = new Song("Title", "Artist");
+        list.add(song);
+        assertTrue(list.removeAll(song));
+        assertEquals(0, list.size());
+    }
+
+    /**
+     * Test method for attempting to remove all occurrences of a null song from the list.
+     * Verifies that no song is removed, and list size remains unchanged.
+     */
+    @Test
+    public void testRemoveAllNullSong() {
+        LinkedList list = new LinkedList();
+        assertFalse(list.removeAll(null));
+    }
 
 
 }
