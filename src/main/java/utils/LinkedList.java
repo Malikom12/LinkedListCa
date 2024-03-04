@@ -85,17 +85,19 @@ return an int indicating the position at which the Song could be found. If the S
    /** A method called add() that takes a single parameter, a Song to be added to the end of the list. **/
 
    public void add(Song song) {
-       Node newNode = new Node(song);
-       if (head == null) {
-           head = newNode;
-       } else {
-           Node current = head;
-           while (current.getNext() != null) {
-               current = current.getNext();
+       if (!isDuplicate(song)){
+           Node newNode = new Node(song);
+           if (head == null) {
+               head = newNode;
+           } else {
+               Node current = head;
+               while (current.getNext() != null) {
+                   current = current.getNext();
+               }
+               current.setNext(newNode);
            }
-           current.setNext(newNode);
+           songs++;
        }
-       songs++;
    }
 
    /** A method called isEmpty() that takes no parameters. This should return a boolean indicating if there is data
@@ -125,6 +127,16 @@ return an int indicating the position at which the Song could be found. If the S
        }
    }
 
+   public boolean isDuplicate(Song song){
+           Node current = head;
+           while(current!=null){
+               if (current.getData().equals(song)){
+                   return true;
+               }
+               current = current.getNext();
+           }
+       return false;
+   }
 
 
 
